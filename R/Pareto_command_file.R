@@ -32,23 +32,23 @@
 
 # DeCorte, Lievens & Sackett (2007) application example is used as example input below.
 
-# Proportion of minority applicants in full applicant pool
-prop <<- 1/4
-
-# Selection ratio
-sr <<- 0.10
-
-# Subgroup difference
-d <<- c(1.00, 0.23, 0.09, 0.33)
-
-# Population correlation matrix
-# Format: Predictor_1, ..., Predictor_n, Criterion
-R <<- matrix(c(1, .24, .00, .19, .30,
-               .24, 1, .12, .16, .30,
-               .00, .12, 1, .51, .18,
-               .19, .16, .51, 1, .28,
-               .30, .30, .18, .28, 1),
-             (length(d)+1),(length(d)+1),byrow=T)
+# # Proportion of minority applicants in full applicant pool
+# prop <<- 1/4
+#
+# # Selection ratio
+# sr <<- 0.10
+#
+# # Subgroup difference
+# d <<- c(1.00, 0.23, 0.09, 0.33)
+#
+# # Population correlation matrix
+# # Format: Predictor_1, ..., Predictor_n, Criterion
+# R <<- matrix(c(1, .24, .00, .19, .30,
+#                .24, 1, .12, .16, .30,
+#                .00, .12, 1, .51, .18,
+#                .19, .16, .51, 1, .28,
+#                .30, .30, .18, .28, 1),
+#              (length(d)+1),(length(d)+1),byrow=T)
 
 ###### Additional Settings ######
 

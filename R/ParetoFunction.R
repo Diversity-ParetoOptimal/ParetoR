@@ -21,7 +21,7 @@
 #' @export
 NBI = function(X0,Spac,Fnum,VLB=vector(),VUB=vector(),TolX=1e-4,TolF=1e-4,TolCon=1e-7){
 
-  cat('\n EStimating Pareto-Optimal Solution ... \n')
+  cat('\n Estimating Pareto-Optimal Solution ... \n')
 
   #------------------------------Initialize Options-------------------------------#
 
