@@ -5,7 +5,7 @@ Developer: Temporarily removed for blind review
 Contact: Temporarily removed for blind review
 Last Update: 01/11/2017
 
-## Instruction ##
+## Instructions ##
 
 1. Open R console or RStudio
 2. Install R package "ParetoR" through Github by running the following commands in R console or RStudio:
@@ -13,7 +13,7 @@ Last Update: 01/11/2017
    library("devtools") <br />
    install_github("Diversity-ParetoOptimal/ParetoR") <br />
    library("ParetoR") <br />
-3. Specify four input variables (details in "Input Description" and example in "Example Input" below):
+3. Specify four input variables (details in "Input Description" and example in "Example Input" below): <br />
    a) prop # proportion of minority applicants <br />
    b) sr # selection ratio <br />
    c) d # subgroup difference <br />
@@ -35,12 +35,13 @@ d <- c(1.00, 0.23, 0.09, 0.33)
 
 #### Correlation matrix
 ####### Format: Predictor_1, ..., Predictor_n, Criterion
-R <- matrix(c(1, .24, .00, .19, .30,
-               .24, 1, .12, .16, .30,
-               .00, .12, 1, .51, .18,
-               .19, .16, .51, 1, .28,
-               .30, .30, .18, .28, 1),
-             (length(d)+1),(length(d)+1),byrow=T)
+R <- matrix(c(1, .24, .00, .19, .30, <br /> 
+               .24, 1, .12, .16, .30, <br /> 
+               .00, .12, 1, .51, .18, <br /> 
+               .19, .16, .51, 1, .28, <br /> 
+               .30, .30, .18, .28, 1), <br /> 
+             (length(d)+1),(length(d)+1),byrow=T) 
+             
 ## Input Description ##
 
 1. Proportion of minority applicants (prop):
