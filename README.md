@@ -13,8 +13,7 @@ Last Update: 01/11/2017
    library("devtools") <br />
    install_github("Diversity-ParetoOptimal/ParetoR") <br />
    library("ParetoR") <br />
-3. Specify four inputs: <br />
-   (DeCorte, Lievens & Sackett (2007) application example is used as example input below.) <br />
+3. Specify four inputs (example from DeCorte, Lievens & Sackett (2007) is given below.): <br />
    a) Proportion of minority applicants (prop) = (# of minority applicants)/(total # of applicants) <br />
       &nbsp; &nbsp; Example: <br />
       &nbsp; &nbsp; &nbsp; &nbsp; prop <- 1/4 <br />
