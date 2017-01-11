@@ -42,7 +42,7 @@ Last Update: 01/11/2017
 
 #### Note ####
 
-The program is modeled after DeCorte's (2006) TROFSS Fortran program and Zhou (2006)'s NBI Matlab program (version 0.1.3).
+The program is modeled after DeCorte's (2006) TROFSS Fortran program and Zhou's (2006) NBI Matlab program (version 0.1.3).
 Current version only supports scenario where AI ratio and one other criterion is being maximized.
 
 #### References ####
