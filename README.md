@@ -14,42 +14,26 @@ Last Update: 01/11/2017
    install_github("Diversity-ParetoOptimal/ParetoR") <br />
    library("ParetoR") <br />
 3. Specify four inputs (details in "Input Description" and example in "Example Input" below): <br />
-   a) prop # proportion of minority applicants <br />
-   b) sr # selection ratio <br />
-   c) d # subgroup difference <br />
-   d) R # correlation matrix of predictor and criterions <br /> 
-4. Run "out = ParetoR(prop, sr, R, d)" in R console or RStudio
-
-## Example Input ##
-
-DeCorte, Lievens & Sackett (2007) application example is used as example input below.
-
-#### Proportion of minority applicants in full applicant pool
-prop <- 1/4
-
-#### Selection ratio
-sr <- 0.10
-
-#### Predictor subgroup mean difference
-d <- c(1.00, 0.23, 0.09, 0.33)
-
-#### Correlation matrix
-####### Format: Predictor_1, ..., Predictor_n, Criterion
+   (DeCorte, Lievens & Sackett (2007) application example is used as example input below.) <br />
+   a) Proportion of minority applicants (prop) = (# of minority applicants)/(total # of applicants) <br />
+      Example: <br />
+      prop <- 1/4 <br />
+   b) Selection ratio (sr) = (# of selected applicants)/(total # of applicants) <br />
+      Example: <br />
+      sr <- 0.10 <br />
+   c) Correlation matrix (R) = criterion & predictor inter-correlation matrix (in applicant pool) <br \>
+      Example: <br />
+      # Format: Predictor_1, ..., Predictor_n, Criterion <br />
 R <- matrix(c(1, .24, .00, .19, .30, <br /> 
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .24, 1, .12, .16, .30, <br /> 
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .00, .12, 1, .51, .18, <br /> 
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .19, .16, .51, 1, .28, <br /> 
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .30, .30, .18, .28, 1), <br /> 
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (length(d)+1),(length(d)+1)) 
-             
-## Input Description ##
-
-1. Proportion of minority applicants (prop):
-prop = (# of minority applicants)/(total # of applicants)
-2. Selection ratio (sr): sr = (# of selected applicants)/(total # of applicants)
-3. Subgroup difference (d): criterion & predictor mean difference
-between minority and majority subgroups
-4. Correlation matrix (R): criterion & predictor inter-correlation
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (length(d)+1),(length(d)+1))
+   d) Subgroup difference (d): standardized mean differences between minority and majority subgroups, on each predictor (in applicant pool)s <br />
+      Example: <br />
+      d <- c(1.00, 0.23, 0.09, 0.33) <br />
+4. Run "out = ParetoR(prop, sr, R, d)" in R console or RStudio
 
 ## Output Description ##
 
