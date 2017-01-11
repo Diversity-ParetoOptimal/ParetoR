@@ -20,6 +20,9 @@ Last Update: 01/11/2017
    &nbsp; # Selection ratio (**sr**) = (# of selected applicants)/(total # of applicants) <br />
       &nbsp; ## *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp; sr <- 0.10 <br />
+   &nbsp; # Subgroup differences (**d**): standardized mean differences between minority and majority subgroups, on each predictor (in applicant pool) <br />
+      &nbsp; ## *Example*: <br />
+      &nbsp; &nbsp; &nbsp; &nbsp;  d <- c(1.00, 0.23, 0.09, 0.33) <br />
    &nbsp; # Correlation matrix (**R**) = criterion & predictor inter-correlation matrix (in applicant pool) <br \>
       &nbsp; ## *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp; # Format: Predictor_1, ..., Predictor_n, Criterion <br />
@@ -29,9 +32,6 @@ Last Update: 01/11/2017
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .19, .16, .51, 1, .28, <br /> 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .30, .30, .18, .28, 1), <br /> 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (length(d)+1),(length(d)+1)) <br />
-   &nbsp; # Subgroup differences (**d**): standardized mean differences between minority and majority subgroups, on each predictor (in applicant pool) <br />
-      &nbsp; ## *Example*: <br />
-      &nbsp; &nbsp; &nbsp; &nbsp;  d <- c(1.00, 0.23, 0.09, 0.33) <br />
 4. Run following command in R console or RStudio: <br \>
 &nbsp; &nbsp; &nbsp; &nbsp; out = ParetoR(prop, sr, R, d)
 
