@@ -8,7 +8,7 @@ Last Update: 01/11/2017
 ## Instructions ##
 
 1. Open R console or RStudio
-2. Install R package "ParetoR" through Github by running the following commands in R console or RStudio:
+2. Install R package "ParetoR" through Github by pasting the following commands into R console or RStudio:
    install.packages("devtools") <br />
    library("devtools") <br />
    install_github("Diversity-ParetoOptimal/ParetoR") <br />
