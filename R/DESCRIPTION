@@ -1,0 +1,9 @@
+Package: ParetoR
+Type: Package
+Title: Estimates Pareto-Optimal solution for diversity hiring.
+Version: 0.1.0
+Authors@R: person("Temporarily removed", "for blind review", email = "Temporarily removed for blind review", role = c("aut", "cre"))
+Description: Estimates Pareto-Optimal solution for diversity hiring.
+License: What license is it under?
+LazyData: TRUE
+RoxygenNote: 5.0.1
