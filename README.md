@@ -15,13 +15,13 @@ Last Update: 01/11/2017
    library("ParetoR") <br />
 3. Specify four inputs (example from DeCorte, Lievens & Sackett (2007) is given below): <br />
    &nbsp; # Proportion of minority applicants (**prop**) = (# of minority applicants)/(total # of applicants) <br />
-      &nbsp; &nbsp; # *Example*: <br />
+      &nbsp; # *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp; prop <- 1/4 <br />
    &nbsp; # Selection ratio (**sr**) = (# of selected applicants)/(total # of applicants) <br />
-      &nbsp; &nbsp; # *Example*: <br />
+      &nbsp; # *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp; sr <- 0.10 <br />
    &nbsp; # Correlation matrix (**R**) = criterion & predictor inter-correlation matrix (in applicant pool) <br \>
-      &nbsp; &nbsp; # *Example*: <br />
+      &nbsp; # *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp; # Format: Predictor_1, ..., Predictor_n, Criterion <br />
 &nbsp; &nbsp; &nbsp; &nbsp; R <- matrix(c(1, .24, .00, .19, .30, <br /> 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .24, 1, .12, .16, .30, <br /> 
@@ -30,7 +30,7 @@ Last Update: 01/11/2017
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .30, .30, .18, .28, 1), <br /> 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (length(d)+1),(length(d)+1)) <br />
    &nbsp; # Subgroup difference (**d**): standardized mean differences between minority and majority subgroups, on each predictor in applicant pools <br />
-      &nbsp; &nbsp; # *Example*: <br />
+      &nbsp; # *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp;  d <- c(1.00, 0.23, 0.09, 0.33) <br />
 4. Run "out = ParetoR(prop, sr, R, d)" in R console or RStudio
 
