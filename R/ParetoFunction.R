@@ -1,6 +1,6 @@
 # Pareto-Optimization via Normal Boundary Intersection
-# Developer: Q. Chelsea Song
-# Contact: qianqisong@gmail.com
+# Developer: Temporarily removed for blind review
+# Contact: Temporarily removed for blind review
 # Last Update: 01/11/2017
 
 ####################################### NBI Main Function ####################################
