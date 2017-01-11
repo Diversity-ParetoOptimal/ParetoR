@@ -19,16 +19,16 @@ Pareto-optimal solutions are estimated using the Normal-Boundary Intersection me
    install_github("Diversity-ParetoOptimal/ParetoR") <br />
    library("ParetoR") <br />
 3. Specify four inputs (example from DeCorte, Lievens & Sackett (2007) is given below): <br />
-   &nbsp; # Proportion of minority applicants (**prop**) = (# of minority applicants)/(total # of applicants) <br />
+   &nbsp; # (1) Proportion of minority applicants (**prop**) = (# of minority applicants)/(total # of applicants) <br />
       &nbsp; ## *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp; prop <- 1/4 <br />
-   &nbsp; # Selection ratio (**sr**) = (# of selected applicants)/(total # of applicants) <br />
+   &nbsp; # (2) Selection ratio (**sr**) = (# of selected applicants)/(total # of applicants) <br />
       &nbsp; ## *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp; sr <- 0.10 <br />
-   &nbsp; # Subgroup differences (**d**): standardized mean differences between minority and majority subgroups, on each predictor (in applicant pool) <br />
+   &nbsp; # (3) Subgroup differences (**d**): standardized mean differences between minority and majority subgroups, on each predictor (in applicant pool) <br />
       &nbsp; ## *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp;  d <- c(1.00, 0.23, 0.09, 0.33) <br />
-   &nbsp; # Correlation matrix (**R**) = criterion & predictor inter-correlation matrix (in applicant pool) <br \>
+   &nbsp; # (4) Correlation matrix (**R**) = criterion & predictor inter-correlation matrix (in applicant pool) <br \>
       &nbsp; ## *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp; # Format: Predictor_1, ..., Predictor_n, Criterion <br />
 &nbsp; &nbsp; &nbsp; &nbsp; R <- matrix(c(1, .24, .00, .19, .30, <br /> 
