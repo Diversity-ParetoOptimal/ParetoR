@@ -8,11 +8,12 @@ Last Update: 01/11/2017
 ## Instruction ##
 
 1. Open R console or RStudio
-2. Install R package "ParetoR" through Github by running the following command in R console or RStudio:
-   install.packages("devtools")
-   library("devtools")
-   install_github("Diversity-ParetoOptimal/ParetoR")
-3. Specify four input variables (details in "Input Description" below):
+2. Install R package "ParetoR" through Github by running the following commands in R console or RStudio:
+   install.packages("devtools") <br />
+   library("devtools") <br />
+   install_github("Diversity-ParetoOptimal/ParetoR") <br />
+   library("ParetoR") <br />
+3. Specify four input variables (details in "Input Description" and example in "Example Input" below):
    a) prop (i.e., proportion of minority applicants)
    b) sr (i.e., selection ratio)
    c) d (i.e., subgroup difference)
