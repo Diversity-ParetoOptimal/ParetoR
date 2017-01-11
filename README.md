@@ -13,7 +13,7 @@ Last Update: 01/11/2017
    library("devtools") <br />
    install_github("Diversity-ParetoOptimal/ParetoR") <br />
    library("ParetoR") <br />
-3. Specify four input variables (details in "Input Description" and example in "Example Input" below): <br />
+3. Specify four inputs (details in "Input Description" and example in "Example Input" below): <br />
    a) prop # proportion of minority applicants <br />
    b) sr # selection ratio <br />
    c) d # subgroup difference <br />
@@ -36,11 +36,11 @@ d <- c(1.00, 0.23, 0.09, 0.33)
 #### Correlation matrix
 ####### Format: Predictor_1, ..., Predictor_n, Criterion
 R <- matrix(c(1, .24, .00, .19, .30, <br /> 
-               .24, 1, .12, .16, .30, <br /> 
-               .00, .12, 1, .51, .18, <br /> 
-               .19, .16, .51, 1, .28, <br /> 
-               .30, .30, .18, .28, 1), <br /> 
-             (length(d)+1),(length(d)+1),byrow=T) 
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .24, 1, .12, .16, .30, <br /> 
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .00, .12, 1, .51, .18, <br /> 
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .19, .16, .51, 1, .28, <br /> 
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .30, .30, .18, .28, 1), <br /> 
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (length(d)+1),(length(d)+1)) 
              
 ## Input Description ##
 
@@ -58,7 +58,7 @@ between minority and majority subgroups
 
 #### Note ####
 
-The program is modeled after DeCorte's (2006) TROFSS Fortran program and XXX's NBI MATLAB program.
+The program is modeled after DeCorte's (2006) TROFSS Fortran program Zhou (2006)'s NBI Matlab program (version 0.1.3).
 Current version only supports scenario where AI ratio and one other criterion is being maximized.
 
 #### References ####
