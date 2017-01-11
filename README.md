@@ -32,7 +32,8 @@ Last Update: 01/11/2017
    &nbsp; # Subgroup difference (**d**): standardized mean differences between minority and majority subgroups, on each predictor in applicant pools <br />
       &nbsp; ## *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp;  d <- c(1.00, 0.23, 0.09, 0.33) <br />
-4. Run "out = ParetoR(prop, sr, R, d)" in R console or RStudio
+4. Run following command in R console or RStudio: <br \>
+&nbsp; &nbsp; &nbsp; &nbsp; out = ParetoR(prop, sr, R, d)
 
 ## Output Description ##
 
