@@ -30,8 +30,8 @@ between minority and majority subgroups
 
 ## Output Description ##
 
-1) Pareto Optimal solution (i.e., AI ratio, Criterion Validity, Predictor Weights);
-2) Plots (i.e., AI ratio - Criterion Validity trade-off & predictor weights trade-off).
+1. Pareto Optimal solution (i.e., AI ratio, Criterion Validity, Predictor Weights);
+2. Plots (i.e., AI ratio - Criterion Validity trade-off & predictor weights trade-off).
 
 ## Example Input ##
 
