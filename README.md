@@ -37,13 +37,13 @@ Last Update: 01/11/2017
 
 ## Output Description ##
 
-1. Pareto Optimal solution (i.e., AI ratio, Criterion Validity, Predictor Weights)
-2. Plots (i.e., AI ratio - Criterion Validity trade-off & predictor weights trade-off)
+1. Pareto Optimal solutions (i.e., 21 equally-spaced solutions that characterize the Criterion validity – AI ratio tradeoff curve, Predictor Weights at each point along tradeoff curve).
+2. Plots (i.e., Criterion validity – AI ratio tradeoff curve, Predictor weights across trade-off points).
 
 #### Note ####
 
 The program is modeled after DeCorte's (2006) TROFSS Fortran program and Zhou's (2006) NBI Matlab program (version 0.1.3).
-Current version only supports scenario where AI ratio and one other criterion is being maximized.
+The current version only supports scenarios where AI ratio and one other criterion are being optimized.
 
 #### References ####
 
