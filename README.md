@@ -33,7 +33,7 @@ Last Update: 01/11/2017
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .30, .30, .18, .28, 1), <br /> 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (length(d)+1),(length(d)+1)) <br />
 4. Run following command in R console or RStudio: <br \>
-&nbsp; &nbsp; &nbsp; &nbsp; out = ParetoR(prop, sr, R, d)
+&nbsp; &nbsp; &nbsp; &nbsp; out = ParetoR(prop, sr, d, R)
 
 ## Output Description ##
 
