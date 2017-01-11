@@ -1,9 +1,9 @@
 # ParetoR
 
-Pareto-Optimization via Normal Boundary Intersection Method
-Developer: Temporarily removed for blind review
-Contact: Temporarily removed for blind review
-Last Update: 01/11/2017
+Pareto-Optimization via Normal Boundary Intersection Method <br \>
+Developer: Temporarily removed for blind review <br \>
+Contact: Temporarily removed for blind review <br \>
+Last Update: 01/11/2017 
 
 ## Instructions ##
 
