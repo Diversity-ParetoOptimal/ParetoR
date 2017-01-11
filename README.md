@@ -7,7 +7,7 @@ Last Update: 01/11/2017
 
 ## Objective ##
 
-The current R program provides a set of Pareto-optimal solutions that simultaneously optimize both diversity and criterion validity in a personnel selection scenario [see **Names Removed** (under review); adapted from De Corte, Lievens & Sackett (2007); also see Wee, Newman & Joseph (2014) for more details]. 
+The current R program provides a set of Pareto-optimal solutions that simultaneously optimize both diversity and criterion validity in a personnel selection scenario [see (Names Temporarily Removed) (under review); adapted from De Corte, Lievens & Sackett (2007); also see Wee, Newman & Joseph (2014) for more details]. 
 Pareto-optimal solutions are estimated using the Normal-Boundary Intersection method (Das & Dennis, 1998).
 
 ## Instructions ##
