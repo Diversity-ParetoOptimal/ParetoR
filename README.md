@@ -44,7 +44,7 @@ prop <- 1/4
 #### Selection ratio
 sr <- 0.10
 
-#### Subgroup difference
+#### Predictor subgroup mean difference
 d <- c(1.00, 0.23, 0.09, 0.33)
 
 #### Correlation matrix
