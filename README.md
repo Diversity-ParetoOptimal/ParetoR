@@ -14,25 +14,11 @@ Last Update: 01/11/2017
    install_github("Diversity-ParetoOptimal/ParetoR") <br />
    library("ParetoR") <br />
 3. Specify four input variables (details in "Input Description" and example in "Example Input" below):
-   a) prop (i.e., proportion of minority applicants)
-   b) sr (i.e., selection ratio)
-   c) d (i.e., subgroup difference)
-   d) R (i.e., correlation matrix of predictor and criterions)
+   a) prop # proportion of minority applicants <br />
+   b) sr # selection ratio <br />
+   c) d # subgroup difference <br />
+   d) R # correlation matrix of predictor and criterions <br /> 
 4. Run "out = ParetoR(prop, sr, R, d)" in R console or RStudio
-
-## Input Description ##
-
-1. Proportion of minority applicants (prop):
-prop = (# of minority applicants)/(total # of applicants)
-2. Selection ratio (sr): sr = (# of selected applicants)/(total # of applicants)
-3. Subgroup difference (d): criterion & predictor mean difference
-between minority and majority subgroups
-4. Correlation matrix (R): criterion & predictor inter-correlation
-
-## Output Description ##
-
-1. Pareto Optimal solution (i.e., AI ratio, Criterion Validity, Predictor Weights);
-2. Plots (i.e., AI ratio - Criterion Validity trade-off & predictor weights trade-off).
 
 ## Example Input ##
 
@@ -55,6 +41,19 @@ R <- matrix(c(1, .24, .00, .19, .30,
                .19, .16, .51, 1, .28,
                .30, .30, .18, .28, 1),
              (length(d)+1),(length(d)+1),byrow=T)
+## Input Description ##
+
+1. Proportion of minority applicants (prop):
+prop = (# of minority applicants)/(total # of applicants)
+2. Selection ratio (sr): sr = (# of selected applicants)/(total # of applicants)
+3. Subgroup difference (d): criterion & predictor mean difference
+between minority and majority subgroups
+4. Correlation matrix (R): criterion & predictor inter-correlation
+
+## Output Description ##
+
+1. Pareto Optimal solution (i.e., AI ratio, Criterion Validity, Predictor Weights);
+2. Plots (i.e., AI ratio - Criterion Validity trade-off & predictor weights trade-off).
 
 #### Note ####
 
