@@ -56,3 +56,10 @@ The current version only supports scenarios where AI ratio and one other criteri
 2. De Corte, W. (2006). TROFSS User's Guide.
 3. De Corte, W., Lievens, F., & Sackett, P. (2007). Combining predictors to achieve optimal trade-offs between selection quality and adverse impact. Journal of Applied Psychology, 92, 1380-1393. 
 
+#### Acknowledgements ####
+
+Great appreciation to Dr. *Name Temporarily Removed for Blind Review*, Dr. *Name Temporarily Removed for Blind Review*, and Dr. Wilfred De Corte for guidance and feedback on development of the program.
+
+#### Web Application ####
+
+We also developed a user-friendly web application to implement the Pareto-Optimal technique described in the current package (http: *Link Temporarily Removed for Blind Review*). The web application (like the ParetoR package) uses only a correlation matrix, selection ratio, proportion of applicants from the minority group, and subgroup d values as input. It then provides a full set of Pareto solutions and their corresponding predictor weights.
