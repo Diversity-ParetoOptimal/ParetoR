@@ -42,7 +42,7 @@ Pareto-optimal solutions are estimated using the Normal-Boundary Intersection me
 
 ## Output Description ##
 
-1. Pareto Optimal solutions (i.e., 21 equally-spaced solutions that characterize the Criterion validity – AI ratio tradeoff curve, Predictor Weights at each point along tradeoff curve).
+1. Pareto Optimal solutions (i.e., 21 equally-spaced solutions that characterize the Criterion validity – AI ratio tradeoff curve, and Predictor Weights at each point along tradeoff curve).
 2. Plots (i.e., Criterion validity – AI ratio tradeoff curve, Predictor weights across trade-off points).
 
 #### Note ####
