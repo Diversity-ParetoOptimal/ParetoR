@@ -12,7 +12,7 @@ Pareto-optimal solutions are estimated using the Normal-Boundary Intersection me
 
 ## Instructions ##
 
-1. Open R console or RStudio
+1. Open an R console or RStudio window. (R can be downloaded for free from https://cran.r-project.org; RStudio can be downloaded for free from https://www.rstudio.com/)
 2. Install R package "ParetoR" through Github by pasting and running the following commands into R console or RStudio:
    install.packages("devtools") <br />
    library("devtools") <br />
