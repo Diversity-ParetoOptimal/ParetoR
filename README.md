@@ -55,6 +55,7 @@ The current version only supports scenarios where AI ratio and one other criteri
 1. Das, I., & Dennis, J. E. (1998). Normal-boundary intersection: A new method for generating the Pareto surface in nonlinear multicriteria optimization problems. SIAM Journal on Optimization, 8, 631-657.
 2. De Corte, W. (2006). TROFSS User's Guide.
 3. De Corte, W., Lievens, F., & Sackett, P. (2007). Combining predictors to achieve optimal trade-offs between selection quality and adverse impact. Journal of Applied Psychology, 92, 1380-1393. 
+4. Wee, S., Newman, D. A., & Joseph, D. L. (2014). More than g: Selection quality and adverse impact implications of considering second-stratum cognitive abilities. Journal of Applied Psychology, 99, 547-563. 
 
 #### Acknowledgements ####
 
