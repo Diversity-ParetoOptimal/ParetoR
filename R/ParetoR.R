@@ -108,7 +108,7 @@ ParetoR = function(prop, sr, d, R, graph = TRUE){
 
   ###### Find Pareto-Optimal Solution ######
 
-  out = NBI(X0, Spac, Fnum, VLB, VUB, TolX, TolF, TolCon, graph=TRUE)
+  out = NBI(X0, Spac, Fnum, VLB, VUB, TolX, TolF, TolCon, graph=graph)
   return(out)
 
 }
