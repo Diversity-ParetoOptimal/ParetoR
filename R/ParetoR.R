@@ -1,7 +1,7 @@
 # Command Function (ParetoR) - Pareto-Optimization via Normal Boundary Intersection
 # Developer: Temporarily removed for blind review
 # Contact: Temporarily removed for blind review
-# Last Update: 01/11/2017
+# Last Update: 03/09/2017
 
 ###### Instruction ######
 
@@ -62,14 +62,34 @@
 #' @param sr Selection ratio
 #' @param d Subgroup difference
 #' @param R Correlation matrix
-#' @return out Pareto-Optimal solution
+#' @param graph If TRUE, plots will be generated for Pareto-optimal curve and predictor weights
+#' @return out Pareto-Optimal solution with criterion values (Criterion) and predictor weights (ParetoWeights)
+#' @examples
+#' # Specify inputs
+#' # (1) Proportion of minority applicants (prop) = (# of minority applicants)/(total # of applicants)
+#' prop <- 1/4
+#' # (2) Selection ratio (sr) = (# of selected applicants)/(total # of applicants)
+#' sr <- 0.10
+#' # (3) Subgroup differences (d): standardized mean differences between minority and majority subgroups (i.e., majority - minority), on each predictor (in applicant pool)
+#' d <- c(1.00, 0.23, 0.09, 0.33)
+#' # (4) Correlation matrix (R) = criterion & predictor inter-correlation matrix (in applicant pool)
+#' # Format: Predictor_1, ..., Predictor_n, Criterion
+#' R <- matrix(c(1, .24, .00, .19, .30,
+#'               .24, 1, .12, .16, .30,
+#'               .00, .12, 1, .51, .18,
+#'               .19, .16, .51, 1, .28,
+#'               .30, .30, .18, .28, 1),
+#'             (length(d)+1),(length(d)+1))
+#' # Fit Pareto-optimal model
+#' out = ParetoR(prop, sr, d, R)
+#'
 #' @export
-ParetoR = function(prop,sr,d,R){
+ParetoR = function(prop, sr, d, R, graph = TRUE){
 
-  # prop <<- prop
-  # sr <<- sr
-  # d <<- d
-  # R <<- R
+  prop_ParetoR <<- prop
+  sr_ParetoR <<- sr
+  d_ParetoR <<- d
+  R_ParetoR <<- R
 
   # Number of Pareto-Points
   Spac 	= 20
@@ -88,7 +108,7 @@ ParetoR = function(prop,sr,d,R){
 
   ###### Find Pareto-Optimal Solution ######
 
-  out = NBI(X0,Spac,Fnum,VLB,VUB,TolX,TolF,TolCon)
+  out = NBI(X0, Spac, Fnum, VLB, VUB, TolX, TolF, TolCon, graph=TRUE)
   return(out)
 
 }

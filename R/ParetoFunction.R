@@ -1,7 +1,7 @@
 # Pareto-Optimization via Normal Boundary Intersection
-# Developer: Temporarily removed for blind review
-# Contact: Temporarily removed for blind review
-# Last Update: 01/11/2017
+# Developer: Q. Chelsea Song
+# Contact: qianqisong@gmail.com
+# Last Update: 11/17/2016
 
 ####################################### NBI Main Function ####################################
 
@@ -16,14 +16,16 @@
 #' @param TolX Tolerance index for estimating weight vector, default is 1e-4
 #' @param TolF Tolerance index for estimating criterion, default is 1e-4
 #' @param TolCon Tolerance index for constraint conditions, default is 1e-7
+#' @param graph If TRUE, plots will be generated for Pareto-optimal curve and predictor weights
+#' @param graph If TRUE, plots will be generated for Pareto-optimal curve and predictor weights
 #' @import nloptr
 #' @return Pareto-Optimal solutions
 #' @export
-NBI = function(X0,Spac,Fnum,VLB=vector(),VUB=vector(),TolX=1e-4,TolF=1e-4,TolCon=1e-7){
+NBI = function(X0,Spac,Fnum,VLB=vector(),VUB=vector(),TolX=1e-4,TolF=1e-4,TolCon=1e-7,graph=TRUE){
 
-  cat('\n Estimating Pareto-Optimal Solution ... \n')
+cat('\n Estimating Pareto-Optimal Solution ... \n')
 
-  #------------------------------Initialize Options-------------------------------#
+#------------------------------Initialize Options-------------------------------#
 
   X0 = assert_col_vec(X0)
   VLB = assert_col_vec(VLB)
@@ -44,10 +46,10 @@ NBI = function(X0,Spac,Fnum,VLB=vector(),VUB=vector(),TolX=1e-4,TolF=1e-4,TolCon
   # options = optimoptions('fmincon','Algorithm','sqp','MaxIter',(nvars+1)*1000,'TolFun',TolF,'TolX',TolX,'TolCon',TolCon,'Display','off')
 
   nloptr::nl.opts(optlist = list(
-    maxeval = (nvars+1)*1000
-    ,xtol_rel = TolX
-    ,ftol_rel = TolF
-  ))
+             maxeval = (nvars+1)*1000
+             ,xtol_rel = TolX
+             ,ftol_rel = TolF
+             ))
 
   #Initialize PHI
 
@@ -81,10 +83,10 @@ NBI = function(X0,Spac,Fnum,VLB=vector(),VUB=vector(),TolX=1e-4,TolF=1e-4,TolCon
       xstart = runif(length(X0))
 
       out = nloptr::slsqp(x0 = X0, fn = myLinCom
-                  ,lower = VLB, upper = VUB
-                  ,hin = myCon_ineq
-                  ,heq = myCon_eq
-      )
+                 ,lower = VLB, upper = VUB
+                 ,hin = myCon_ineq
+                 ,heq = myCon_eq
+                  )
       x = out$par
       f = out$value
       rm(out)
@@ -219,51 +221,51 @@ NBI = function(X0,Spac,Fnum,VLB=vector(),VUB=vector(),TolX=1e-4,TolF=1e-4,TolCon
       # success
       # if(fiasco >= 0){
 
-      Pareto_Fmat = cbind(Pareto_Fmat, -myFM(x_trial[1:nvars]))  # Pareto optima in F-space
-      som = 0
+        Pareto_Fmat = cbind(Pareto_Fmat, -myFM(x_trial[1:nvars]))  # Pareto optima in F-space
+        som = 0
 
-      for(k in 2:nvars){som = som + x_trial[k]}
+        for(k in 2:nvars){som = som + x_trial[k]}
 
-      for(k in 2:nvars){x_trial[k] = x_trial[k]/som}
+        for(k in 2:nvars){x_trial[k] = x_trial[k]/som}
 
-      Pareto_Xmat = cbind(Pareto_Xmat, x_trial[1:nvars])        # Pareto optima in X-space
-      X_Near = cbind(X_Near,x_trial)
+        Pareto_Xmat = cbind(Pareto_Xmat, x_trial[1:nvars])        # Pareto optima in X-space
+        X_Near = cbind(X_Near,x_trial)
 
-      #       }else{
-      #
-      #         # unsuccess
-      #
-      #         num_fiascos = num_fiascos + 1
-      #         PHI2 = matrix(0,Fnum,Fnum)
-      #
-      #         for(i in 1:Fnum){
-      #
-      #           PHI2[,i] = myFM(x_trial) - ShadowF
-      #           PHI2[i,i] = 0
-      #         }
-      #
-      #         g_Normal2  = -PHI2%*%matrix(1,Fnum,1)
-      #         g_Normal2  = g_Normal2/norm(g_Normal2,type='2') # specifies 2-norm, or Euclidean length  the vector
-      #         Pareto_Fmat = c(Pareto_Fmat, (g_StartF + xstart[dimFun(xstart)[1]] %*% g_Normal2))  # Pareto optima in F-space
-      #         X_Near = c(X_Near,x_trial)
-      #         giveup = readline('Give up ?  (0/1)  ')
-      #         if(giveup == 1){break}
-      #
-      #       }
+#       }else{
+#
+#         # unsuccess
+#
+#         num_fiascos = num_fiascos + 1
+#         PHI2 = matrix(0,Fnum,Fnum)
+#
+#         for(i in 1:Fnum){
+#
+#           PHI2[,i] = myFM(x_trial) - ShadowF
+#           PHI2[i,i] = 0
+#         }
+#
+#         g_Normal2  = -PHI2%*%matrix(1,Fnum,1)
+#         g_Normal2  = g_Normal2/norm(g_Normal2,type='2') # specifies 2-norm, or Euclidean length  the vector
+#         Pareto_Fmat = c(Pareto_Fmat, (g_StartF + xstart[dimFun(xstart)[1]] %*% g_Normal2))  # Pareto optima in F-space
+#         X_Near = c(X_Near,x_trial)
+#         giveup = readline('Give up ?  (0/1)  ')
+#         if(giveup == 1){break}
+#
+#       }
+
+      }
 
     }
 
-  }
-
   #------------------------------Plot Solutions-------------------------------#
 
-  #   cat('\n ----Step 6: plot---- \n')
+#   cat('\n ----Step 6: plot---- \n')
 
-  plotPareto(Pareto_Fmat, Pareto_Xmat)
+  if(graph==TRUE){plotPareto(Pareto_Fmat, Pareto_Xmat)}
 
   #------------------------------Output Solutions-------------------------------#
 
-  #   Output Solution
+#   Output Solution
 
   solution = round(cbind(t(Pareto_Fmat),t(Pareto_Xmat[2:nrow(Pareto_Xmat),])),3)
   colnames(solution) = c("AI.ratio","Criterion.Validity", paste0(rep("P",(nvars-1)),1:(nvars-1)))
@@ -302,6 +304,10 @@ NBI = function(X0,Spac,Fnum,VLB=vector(),VUB=vector(),TolX=1e-4,TolF=1e-4,TolCon
 #' @export
 myFM = function(x){
 
+  # Obtain within-package 'global' variables
+  d <- d_ParetoR
+  R <- R_ParetoR
+
   R_u = R[-nrow(R),-ncol(R)]
   b = x[-1]
 
@@ -313,7 +319,6 @@ myFM = function(x){
   p_i_bar = 0
   # mean of majority weighted predictor composite distribution (DeCorte, 1999)
   p_a_bar = d%*%x[-1]/sigma_p
-  # p_a_bar = (x[2]*1.00+x[3]*0.23+x[4]*0.09+x[5]*0.33)/sigma_p
   # minority group selection ratio (denoted as h_i in DeCorte et al., 1999)
   SR_B = 1 - pnorm(x[1], p_i_bar)
   # majority group selection ratio (denoted as h_i in DeCorte et al., 1999)
@@ -357,6 +362,12 @@ myCon_ineq = function(x){return(vector())}
 #' @export
 myCon_eq = function(x){
 
+  # Obtain within-package 'global' variable
+  prop <- prop_ParetoR
+  sr <- sr_ParetoR
+  d <- d_ParetoR
+  R <- R_ParetoR
+
   R_u = R[-nrow(R),-ncol(R)]
   b = x[-1]
 
@@ -397,7 +408,6 @@ myCon_eq = function(x){
 ## myT
 ## myTCon_eq
 ## plotPareto
-
 
 ###### assert_col_vec() ######
 
@@ -440,8 +450,6 @@ WeightsFun = function(n, k){
 
   # global variables
   # weight, Weights, Formers, Layer, lastone, currentone
-
-  #[Weight, Former] = Weights( n, k )
   #
   # Generates all possible weights for NBI subproblems given:
   # n, the number of objectives
@@ -574,62 +582,13 @@ myTCon_eq = function(x_t){
 
 }
 
-# Note:
-# myTCon_ineq() = myCon_ineq()
-
 ###### plotPareto() ######
-
-# plotPareto = function(Pareto_Fmat, Pareto_Xmat){
-#
-#   par(mfrow=c(1,2))
-#
-#   AIratio = t(Pareto_Fmat[1,])
-#   Criterion = t(Pareto_Fmat[2,])
-#   X = t(Pareto_Xmat[2:nrow(Pareto_Xmat),])
-#
-#   # AI ratio - Composite Validity trade-off
-#
-#   plot(AIratio, Criterion,
-#        xlim = c(min(AIratio),max(AIratio)),
-#        main = "Composite Validity -- AI ratio trade-off",
-#        xlab = "AI ratio",
-#        ylab = "Composite Validity",
-#        type='c',col='blue')
-#
-#   points(AIratio, Criterion,
-#          pch=8,col='red')
-#
-#   # Predictor weights
-#
-#   plot(AIratio,X[,1],
-#        xlim=c(min(AIratio),max(AIratio)),ylim=c(0,1),
-#        main = "Predictor weights trade-off function",
-#        xlab = "AI ratio",
-#        ylab = "Predictor weight",
-#        type='c',col='red')
-#   points(AIratio,X[,1],pch=8,col='red')
-#
-#   lines(AIratio,X[,2],type='c',col='blue')
-#   points(AIratio,X[,2],pch=8,col='blue')
-#
-#   lines(AIratio,X[,3],type='c',col='green')
-#   points(AIratio,X[,3],pch=8,col='green')
-#
-#   lines(AIratio,X[,4],type='c',col='magenta')
-#   points(AIratio,X[,4],pch=8,col='magenta')
-#
-#   legend('topleft',
-#          legend=c('Predictor 1','Predictor 2','Predictor 3','Predictor 4'),
-#          lty=c(2,2,2,2),lwd=c(2,2,2,2),
-#          col=c('red','blue','green','magenta'))
-#
-# }
 
 #' plotPareto
 #'
 #' Function for plotting Pareto-optimal curve and predictor weights
-#' @param Pareto_Fmat Pareto-Optimal criterion solution
-#' @param Pareto_Xmat Pareto-Optimal predictor weight solution
+#' @param CriterionOutput Pareto-Optimal criterion solution
+#' @param ParetoWeights Pareto-Optimal predictor weight solution
 #' @return Plot of Pareto-optimal curve and plot of predictor weights
 #' @export
 plotPareto = function(Pareto_Fmat, Pareto_Xmat){
@@ -656,9 +615,9 @@ plotPareto = function(Pareto_Fmat, Pareto_Xmat){
 
   plot(AIratio,X[,1],
        xlim=c(min(AIratio),max(AIratio)),ylim=c(0,1),
-       main = "Predictor Weights trade-off function",
+       main = "Predictor weights trade-off function",
        xlab = "AI ratio",
-       ylab = "Predictor Weight",
+       ylab = "Predictor weight",
        type='c',col='red')
   points(AIratio,X[,1],pch=8,
          col=rainbow(1))
