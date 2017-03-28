@@ -1,7 +1,7 @@
 # Pareto-Optimization via Normal Boundary Intersection
 # Developer: Q. Chelsea Song
 # Contact: qianqisong@gmail.com
-# Last Update: 11/17/2016
+# Last Update: 03/28/2017
 
 ####################################### NBI Main Function ####################################
 
@@ -21,7 +21,7 @@
 #' @import nloptr
 #' @return Pareto-Optimal solutions
 #' @export
-NBI = function(X0,Spac,Fnum,VLB=vector(),VUB=vector(),TolX=1e-4,TolF=1e-4,TolCon=1e-7,graph=TRUE){
+NBI = function(X0,Spac,Fnum,VLB=vector(),VUB=vector(),TolX=1e-4,TolF=1e-4,TolCon=1e-7,graph=TRUE,display_solution=TRUE){
 
 cat('\n Estimating Pareto-Optimal Solution ... \n')
 
