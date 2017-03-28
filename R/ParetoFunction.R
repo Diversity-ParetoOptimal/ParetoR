@@ -17,7 +17,7 @@
 #' @param TolF Tolerance index for estimating criterion, default is 1e-4
 #' @param TolCon Tolerance index for constraint conditions, default is 1e-7
 #' @param graph If TRUE, plots will be generated for Pareto-optimal curve and predictor weights
-#' @param graph If TRUE, plots will be generated for Pareto-optimal curve and predictor weights
+#' @param display_solution If TRUE, Pareto-optimal solution will be displayed
 #' @import nloptr
 #' @return Pareto-Optimal solutions
 #' @export
