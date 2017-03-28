@@ -17,11 +17,11 @@
 #' @param TolF Tolerance index for estimating criterion, default is 1e-4
 #' @param TolCon Tolerance index for constraint conditions, default is 1e-7
 #' @param graph If TRUE, plots will be generated for Pareto-optimal curve and predictor weights
-#' @param graph If TRUE, plots will be generated for Pareto-optimal curve and predictor weights
+#' @param display_solution If TRUE, Pareto-optimal solutions will be displayed 
 #' @import nloptr
 #' @return Pareto-Optimal solutions
 #' @export
-NBI = function(X0,Spac,Fnum,VLB=vector(),VUB=vector(),TolX=1e-4,TolF=1e-4,TolCon=1e-7,graph=TRUE){
+NBI = function(X0, Spac, Fnum, VLB=vector(), VUB=vector(), TolX=1e-4, TolF=1e-4, TolCon=1e-7, graph=TRUE, display_solution = TRUE){
 
 cat('\n Estimating Pareto-Optimal Solution ... \n')
 
