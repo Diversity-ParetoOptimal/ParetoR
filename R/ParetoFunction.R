@@ -274,7 +274,7 @@ cat('\n Estimating Pareto-Optimal Solution ... \n')
   
   if(display_solution == TRUE){
     
-    solution = round(cbind(t(Pareto_Fmat),t(Pareto_Xmat)),3)
+    solution = round(cbind(Pareto_Fmat,Pareto_Xmat),3)
     colnames(solution) = c("AI.ratio","Criterion.Validity", paste0(rep("P",(nvars-1)),1:(nvars-1)))
     cat("\n Pareto-Optimal Solution \n \n")
     print(solution)
