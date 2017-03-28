@@ -267,16 +267,18 @@ cat('\n Estimating Pareto-Optimal Solution ... \n')
 
 #   Output Solution
 
-  colnames(t(Pareto_Fmat)) = c("AI.ratio","Criterion.Validity")
-  colnames(t(Pareto_Fmat)) = c(paste0(rep("P",(nvars-1)),1:(nvars-1)))
+  Pareto_Fmat = t(Pareto_Fmat)
+  Pareto_Xmat = t(Pareto_Fmat)
+  colnames(Pareto_Fmat) = c("AI.ratio","Criterion.Validity")
+  colnames(Pareto_Xmat) = c(paste0(rep("P",(nvars-1)),1:(nvars-1)))
   
   # solution = round(cbind(t(Pareto_Fmat),t(Pareto_Xmat[2:nrow(Pareto_Xmat),])),3)
   # colnames(solution) = c("AI.ratio","Criterion.Validity", paste0(rep("P",(nvars-1)),1:(nvars-1)))
   # cat("\n Pareto-Optimal Solution \n \n")
   # print(solution)
 
-  return(list(Pareto_CriterionValues = t(round(Pareto_Fmat,3)),
-              Pareto_PredictorWeights = t(round(Pareto_Xmat[2:nrow(Pareto_Xmat),],3))))
+  return(list(Pareto_Fmat = round(Pareto_Fmat,3),
+              Pareto_Xmat = round(Pareto_Xmat[2:nrow(Pareto_Xmat),],3)))
 
 }
 
