@@ -26,7 +26,7 @@ NBI(X0, Spac, Fnum, VLB = vector(), VUB = vector(), TolX = 1e-04,
 
 \item{graph}{If TRUE, plots will be generated for Pareto-optimal curve and predictor weights}
 
-\item{graph}{If TRUE, plots will be generated for Pareto-optimal curve and predictor weights}
+\item{display_solution}{If TRUE, Pareto-optimal solution will be displayed}
 }
 \value{
 Pareto-Optimal solutions
