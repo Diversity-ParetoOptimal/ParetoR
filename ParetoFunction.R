@@ -268,7 +268,7 @@ cat('\n Estimating Pareto-Optimal Solution ... \n')
 #   Output Solution
 
   Pareto_Fmat = t(Pareto_Fmat)
-  Pareto_Xmat = t(Pareto_Xmat)
+  Pareto_Xmat = t(Pareto_Xmat[2:nrow(Pareto_Xmat),])
   colnames(Pareto_Fmat) = c("AI.ratio","Criterion.Validity")
   colnames(Pareto_Xmat) = c(paste0(rep("P",(nvars-1)),1:(nvars-1)))
   
@@ -278,7 +278,7 @@ cat('\n Estimating Pareto-Optimal Solution ... \n')
   # print(solution)
 
   return(list(Pareto_Fmat = round(Pareto_Fmat,3),
-              Pareto_Xmat = round(Pareto_Xmat[2:nrow(Pareto_Xmat),],3)))
+              Pareto_Xmat = round(Pareto_Xmat,3)))
 
 }
 
