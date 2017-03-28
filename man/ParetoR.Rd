@@ -4,7 +4,7 @@
 \alias{ParetoR}
 \title{ParetoR}
 \usage{
-ParetoR(prop, sr, d, R, graph = TRUE)
+ParetoR(prop, sr, d, R, graph = TRUE, display_solution = TRUE)
 }
 \arguments{
 \item{prop}{Proportion of minority applicants in full applicant pool}
@@ -16,6 +16,8 @@ ParetoR(prop, sr, d, R, graph = TRUE)
 \item{R}{Correlation matrix}
 
 \item{graph}{If TRUE, plots will be generated for Pareto-optimal curve and predictor weights}
+
+\item{display_solution}{If TRUE, Pareto-optimal solution will be displayed}
 }
 \value{
 out Pareto-Optimal solution with criterion values (Criterion) and predictor weights (ParetoWeights)
@@ -26,12 +28,16 @@ Command function to run Pareto-Optimal algorithm.
 \examples{
 # Specify inputs
 # (1) Proportion of minority applicants (prop) = (# of minority applicants)/(total # of applicants)
+## Example:
 prop <- 1/4
 # (2) Selection ratio (sr) = (# of selected applicants)/(total # of applicants)
+## Example:
 sr <- 0.10
 # (3) Subgroup differences (d): standardized mean differences between minority and majority subgroups (i.e., majority - minority), on each predictor (in applicant pool)
+## Example:
 d <- c(1.00, 0.23, 0.09, 0.33)
 # (4) Correlation matrix (R) = criterion & predictor inter-correlation matrix (in applicant pool)
+## Example:
 # Format: Predictor_1, ..., Predictor_n, Criterion
 R <- matrix(c(1, .24, .00, .19, .30,
               .24, 1, .12, .16, .30,
@@ -41,5 +47,4 @@ R <- matrix(c(1, .24, .00, .19, .30,
             (length(d)+1),(length(d)+1))
 # Fit Pareto-optimal model
 out = ParetoR(prop, sr, d, R)
-
 }
