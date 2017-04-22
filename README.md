@@ -1,8 +1,8 @@
 # ParetoR
 
-Pareto-Optimization via Normal Boundary Intersection Method in Diversity Hiring </>
-Developer: Q. Chelsea Song 
-Contact: qianqisong@gmail.com 
+Pareto-Optimization via Normal Boundary Intersection Method in Diversity Hiring <br />
+Developer: Q. Chelsea Song <br />
+Contact: qianqisong@gmail.com <br />
 Last Update: 01/11/2017 
 
 ## Objective ##
