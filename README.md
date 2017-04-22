@@ -1,8 +1,8 @@
 # ParetoR
 
 Pareto-Optimization via Normal Boundary Intersection Method in Diversity Hiring <br \>
-Developer: Temporarily removed for blind review <br \>
-Contact: Temporarily removed for blind review <br \>
+Developer: Q. Chelsea Song <br \>
+Contact: qianqisong@gmail.com <br \>
 Last Update: 01/11/2017 
 
 ## Objective ##
@@ -59,8 +59,8 @@ The current version only supports scenarios where AI ratio and one other criteri
 
 #### Acknowledgements ####
 
-Great appreciation to Dr. *Name Temporarily Removed for Blind Review*, Dr. *Name Temporarily Removed for Blind Review*, and Dr. Wilfred De Corte for guidance and feedback on development of the program.
+Great appreciation to Dr. Dan Newman, Dr. Serena Wee, and Dr. Wilfred De Corte for guidance and feedback on development of the program.
 
 #### Web Application ####
 
-We also developed a user-friendly web application to implement the Pareto-Optimal technique described in the current package (http: *Link Temporarily Removed for Blind Review*). The web application (like the ParetoR package) uses only a correlation matrix, selection ratio, proportion of applicants from the minority group, and subgroup d values as input. It then provides a full set of Pareto solutions and their corresponding predictor weights.
+We also developed a user-friendly web application to implement the Pareto-Optimal technique described in the current package (https://qchelseasong.shinyapps.io/ParetoR/). The web application (like the ParetoR package) uses only a correlation matrix, selection ratio, proportion of applicants from the minority group, and subgroup d values as input. It then provides a full set of Pareto solutions and their corresponding predictor weights.
