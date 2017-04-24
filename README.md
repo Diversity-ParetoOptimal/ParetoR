@@ -53,8 +53,8 @@ The current version only supports scenarios where AI ratio and one other criteri
 #### References ####
 
 <dl>
-  <dt>Song, Q. C., Wee, S., & Newman, D. (provisionally accepted). Diversity Shrinkage: Cross-Validating Pareto-Optimal Weights to  Enhance Diversity via Hiring Practices. *Journal of Applied Psychology*.</dt>
-  <dd>With hanging indentation</dd>
+  <dt> Song, Q. C., Wee, S., & Newman, D. (provisionally accepted). Diversity Shrinkage: Cross-Validating Pareto-Optimal Weights to  Enhance Diversity via Hiring Practices. *Journal of Applied Psychology*. </dt>
+
 </dl>
 Song, Q. C., Wee, S., & Newman, D. (provisionally accepted). Diversity Shrinkage: Cross-Validating Pareto-Optimal Weights to  Enhance Diversity via Hiring Practices. *Journal of Applied Psychology*. <br />
 Das, I., & Dennis, J. E. (1998). Normal-boundary intersection: A new method for generating the Pareto surface in nonlinear multicriteria optimization problems. *SIAM Journal on Optimization*, 8, 631-657. <br />
