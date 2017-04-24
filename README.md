@@ -59,7 +59,7 @@ The current version only supports scenarios where AI ratio and one other criteri
 
 #### Acknowledgements ####
 
-Great appreciation to Dr. Dan Newman, Dr. Serena Wee, and Dr. Wilfred De Corte for guidance and feedback on development of the program.
+Great appreciation to Dr. Serena Wee, Dr. Dan Newman and Dr. Wilfred De Corte for guidance and feedback on development of the program.
 
 #### Web Application ####
 
