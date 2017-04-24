@@ -7,7 +7,7 @@ Last Update: 04/22/2017
 
 ## Objective ##
 
-The current R program provides a set of Pareto-optimal solutions that simultaneously optimize both diversity and criterion validity in a personnel selection scenario [see Song, Wee & Newman (in press); adapted from De Corte, Lievens & Sackett (2007); also see Wee, Newman & Joseph (2014) for more details]. 
+The current R program provides a set of Pareto-optimal solutions that simultaneously optimize both diversity and criterion validity in a personnel selection scenario [see Song, Wee & Newman (provisionally accepted); adapted from De Corte, Lievens & Sackett (2007); also see Wee, Newman & Joseph (2014) for more details]. 
 Pareto-optimal solutions are estimated using the Normal-Boundary Intersection method (Das & Dennis, 1998).
 
 ## Instructions ##
@@ -56,7 +56,7 @@ The current version only supports scenarios where AI ratio and one other criteri
 2. De Corte, W. (2006). *TROFSS User's Guide*.
 3. De Corte, W., Lievens, F., & Sackett, P. (2007). Combining predictors to achieve optimal trade-offs between selection quality and adverse impact. *Journal of Applied Psychology*, 92, 1380-1393. 
 4. Wee, S., Newman, D. A., & Joseph, D. L. (2014). More than g: Selection quality and adverse impact implications of considering second-stratum cognitive abilities. *Journal of Applied Psychology*, 99, 547-563. 
-5. Song, Q. C., Wee, S., & Newman, D. (in press). Diversity Shrinkage: Cross-Validating Pareto-Optimal Weights to Enhance Diversity via Hiring Practices. *Journal of Applied Psychology*.
+5. Song, Q. C., Wee, S., & Newman, D. (provisionally accepted). Diversity Shrinkage: Cross-Validating Pareto-Optimal Weights to Enhance Diversity via Hiring Practices. *Journal of Applied Psychology*.
 
 #### Acknowledgements ####
 
