@@ -60,7 +60,7 @@ Wee, S., Newman, D. A., & Joseph, D. L. (2014). More than g: Selection quality a
 
 #### Acknowledgements ####
 
-Great appreciation to Dr. Serena Wee, Dr. Dan Newman and Dr. Wilfred De Corte for guidance and feedback on development of the program.
+Great appreciation to Dr. Serena Wee, Dr. Dan Newman and Dr. Wilfried De Corte for guidance and feedback on development of the program.
 
 #### Web Application ####
 
