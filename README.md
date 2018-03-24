@@ -81,6 +81,69 @@ The current R package provides a set of Pareto-optimal solutions that simultaneo
 
 1. Formula-adjusted Pareto-optimal solution
 
+**ParetoElnet** function <br />
+*Regularized Pareto-optimal method introduced in Study 3 of Song (2018; dissertation)* <br />
+
+#### Example Implementation ####
+
+1. Specify inputs (example from De Corte, Lievens & Sackett (2007) is given below): <br />
+ &nbsp; # (1) Calibration sample size <br />
+ ## Example <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; n_cal = 100 <br />
+ &nbsp; # (2) Subgroup differences (d): standardized mean differences between minority and majority subgroups (i.e., majority - minority), on each predictor and criterion (in applicant pool) <br />
+ &nbsp; ## Example <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; d <- c(1.00, 0.23, 0.09, 0.33, .30) <br />
+ &nbsp; # (3) Correlation matrix (R) = Criterion predictor inter-correlation matrix <br />
+ &nbsp; # Format: Predictor_1, ..., Predictor_n, Criterion <br />
+ &nbsp; ## Example <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; R <- matrix(c(1, .24, .00, .19, .30, <br />
+ &nbsp; &nbsp; &nbsp; &nbsp;           .24, 1, .12, .16, .30, <br />
+ &nbsp; &nbsp; &nbsp; &nbsp;           .00, .12, 1, .51, .18, <br />
+ &nbsp; &nbsp; &nbsp; &nbsp;           .19, .16, .51, 1, .28, <br />
+ &nbsp; &nbsp; &nbsp; &nbsp;           .30, .30, .18, .28, 1), <br />
+ &nbsp; &nbsp; &nbsp; &nbsp;          (length(d)+1),(length(d)+1)) <br />
+ &nbsp; # (4) Validation sample size <br />
+ &nbsp; ## Example <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; n_val = 10000 <br />
+ &nbsp; # (5) Grid of alpha values to try <br />
+ &nbsp; ## Example <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; alpha.grid <- seq(0,1,length=3) <br />
+ &nbsp; # (6) Grid of lambda values to try <br />
+ &nbsp; ## Example <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; lambda.grid <- 10^seq(1,-2,length=11) <br />
+ &nbsp; # (7) Proportion of minority applicants (prop) = (# of minority applicants)/(total # of applicants) <br />
+ &nbsp; ## Example <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; prop <- 1/4 <br />
+ &nbsp; # (8) Selection ratio (sr) = (# of selected applicants)/(total # of applicants) <br />
+ &nbsp; ## Example <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; sr <- 0.10	<br />
+ &nbsp; # (9) Spac = number of Pareto points <br />
+ &nbsp; ## Example <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; Spac <- 21 <br />
+
+2. Paste and run the following command in R console or RStudio:  <br />
+ &nbsp; # Fit Regularized Pareto-optimal model with parameter selection via cross-validation <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; cv.out = cv.ParetoElnet(n_cal = n_cal, D = D, R = R,  <br />
+ &nbsp; &nbsp; &nbsp; &nbsp;                         n_val = n_val, <br />
+ &nbsp; &nbsp; &nbsp; &nbsp;                         lambda.grid = lambda.grid, alpha.grid = alpha.grid, <br />
+ &nbsp; &nbsp; &nbsp; &nbsp;                         prop = prop, sr = sr, Spac = Spac) <br />
+
+#### Output Description ####
+
+1. Regularized Pareto-optimal solutions (i.e., 21 equally-spaced solutions that characterize the Criterion validity – AI ratio trade-off curve, and Predictor Weights at each point along trade-off curve).
+2. Plots (i.e., Criterion validity – AI ratio trade-off curve, and Predictor weights across trade-off points).
+
+
+**cv.ParetoElnet** function <br />
+*Estimate shrunken Pareto-optimal solution based on Pareto-optimal shrinkage formulae introduced in Study 2 of Song (2018; dissertation)* <br />
+
+#### Example Implementation ####
+
+
+#### Output Description ####
+
+
+
 #### Note ####
 
 The program is modeled after DeCorte's (2006) TROFSS Fortran program and Zhou's (2006) NBI Matlab program (version 0.1.3).
