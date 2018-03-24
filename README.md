@@ -7,10 +7,11 @@ Last Update: 04/22/2017
 
 ## Objective ##
 
-The current R program provides a set of Pareto-optimal solutions that simultaneously optimize both diversity and criterion validity in a personnel selection scenario [see Song, Wee & Newman (provisionally accepted); adapted from De Corte, Lievens & Sackett (2007); also see Wee, Newman & Joseph (2014) for more details]. 
-Pareto-optimal solutions are estimated using the Normal-Boundary Intersection method (Das & Dennis, 1998).
+The current R package provides a set of Pareto-optimal solutions that simultaneously optimize both diversity and criterion validity in a personnel selection scenario [see Song, Wee, & Newman (2017). The current package allows for implementation of (1) Pareto-optimal method that was adapted from De Corte, Lievens & Sackett (2007); (2) Pareto-optimal shrinkage formulae to estimate formula-adjusted shrunken Pareto-optimal solutions (see Study 2 of Song (2018; dissertation); (3) regularized Pareto-optimal method (see Study 3 of Song (2018; dissertation)). 
 
 ## Instructions ##
+
+### Install and Load Package ###
 
 1. Open an R console or RStudio window. (R can be downloaded for free from https://cran.r-project.org; RStudio can be downloaded for free from https://www.rstudio.com/)
 2. Install R package "ParetoR" through Github by pasting and running the following commands in R console or RStudio:
@@ -18,7 +19,15 @@ Pareto-optimal solutions are estimated using the Normal-Boundary Intersection me
    library("devtools") <br />
    install_github("Diversity-ParetoOptimal/ParetoR") <br />
    library("ParetoR") <br />
-3. Specify four inputs (example from DeCorte, Lievens & Sackett (2007) is given below): <br />
+
+### Main Functions ###
+
+**ParetoR function**  <br />
+*Pareto-optimal method introduced by De Corte, Lievens & Sackett (2007)*  <br /> 
+
+#### Example Implementation ####
+
+1. Specify four inputs (example from DeCorte, Lievens & Sackett (2007) is given below): <br />
    &nbsp; # (1) Proportion of minority applicants (**prop**) = (# of minority applicants)/(total # of applicants) <br />
       &nbsp; ## *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp; prop <- 1/4 <br />
@@ -36,14 +45,41 @@ Pareto-optimal solutions are estimated using the Normal-Boundary Intersection me
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .00, .12, 1, .51, .18, <br /> 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .19, .16, .51, 1, .28, <br /> 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .30, .30, .18, .28, 1), <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (length(d)+1),(length(d)+1)) <br />
-4. Paste and run the following command in R console or RStudio: <br \>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (length(d)+1),(length(d)+1)) <br /><br />
+2. Paste and run the following command in R console or RStudio: <br \>
 &nbsp; &nbsp; &nbsp; &nbsp; out = ParetoR(prop, sr, d, R)
 
-## Output Description ##
+#### Output Description ####
 
 1. Pareto Optimal solutions (i.e., 21 equally-spaced solutions that characterize the Criterion validity – AI ratio tradeoff curve, and Predictor Weights at each point along tradeoff curve).
 2. Plots (i.e., Criterion validity – AI ratio tradeoff curve, Predictor weights across trade-off points).
+
+**ParetoShrinkage** function <br \>
+*Estimate shrunken Pareto-optimal solution based on Pareto-optimal shrinkage formulae introduced in Study 2 of Song (2018; dissertation)* <br \>
+
+#### Example Implementation ####
+
+1. Specify inputs <br \>
+ &nbsp; # (1) Calibration sample size  <br \>
+ &nbsp; &nbsp; &nbsp; &nbsp; Ncal <- 100
+ &nbsp; # (2) Number of predictors  <br \>
+ &nbsp; &nbsp; &nbsp; &nbsp; numpred <- 4
+ &nbsp; # (3) Number of Pareto-optimal points (i.e., number of sets of predictor weights)  <br \>
+ &nbsp; &nbsp; &nbsp; &nbsp; p_pareto <- 21
+ &nbsp; # (4) Vector of calibration sample job performance validity  <br \>
+ &nbsp; &nbsp; &nbsp; &nbsp; load(R_perf_cal)
+ &nbsp; # (5) Vector of calibration sample race bivariate correlation [i.e., correlation between race dummy variable (0-minority, 1-majority) and predictor composite score]  <br \>
+ &nbsp; &nbsp; &nbsp; &nbsp; load(R_race_cal)
+
+2. Paste and run the following command in R console or RStudio: <br \>
+ &nbsp; # Estimate shrunken Pareto-optimal solution
+ &nbsp; &nbsp; &nbsp; &nbsp; ParetoShrinkage(Ncal = Ncal, numpred = numpred, p_pareto = p_pareto, 
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; R_perf_cal = R_perf_cal, R_race_cal = R_race_cal, 
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; use = "Wherry)
+
+#### Output Description ####
+
+1. Formula-adjusted Pareto-optimal solution
 
 #### Note ####
 
