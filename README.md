@@ -88,7 +88,7 @@ The current R package provides a set of Pareto-optimal solutions that simultaneo
 
 1. Specify inputs (example from De Corte, Lievens & Sackett (2007) is given below): <br />
  &nbsp; # (1) Calibration sample size <br />
- ## Example <br />
+ &nbsp; ## Example <br />
  &nbsp; &nbsp; &nbsp; &nbsp; n_cal = 100 <br />
  &nbsp; # (2) Subgroup differences (d): standardized mean differences between minority and majority subgroups (i.e., majority - minority), on each predictor and criterion (in applicant pool) <br />
  &nbsp; ## Example <br />
@@ -135,19 +135,95 @@ The current R package provides a set of Pareto-optimal solutions that simultaneo
 
 
 **cv.ParetoElnet** function <br />
-*Estimate shrunken Pareto-optimal solution based on Pareto-optimal shrinkage formulae introduced in Study 2 of Song (2018; dissertation)* <br />
+*Regularized Pareto-optimal method introduced in Study 3 of of Song (2018; dissertation) with parameter selection based on cross-validation method* <br />
 
 #### Example Implementation ####
 
+Example 1: Calibration raw data as input
+
+1. Specify inputs (example from De Corte, Lievens & Sackett (2007) is given below): 
+ # (1) Calibration data
+ # Format: Predictor_1, ..., Predictor_n, Job Performance Validity, Race dummy variable (e.g., 0-minority; 1-majority)
+ ## Example
+        load(data_cal)
+ # (2) Validation sample size
+ ## Example
+        n_val = 10000
+ # (3) Grid of alpha values to try
+ ## Example
+        alpha.grid <- seq(0,1,length=3)
+ # (4) Grid of lambda values to try
+ ## Example
+        lambda.grid <- 10^seq(1,-2,length=11)
+ # (5) Proportion of minority applicants (prop) = (# of minority applicants)/(total # of applicants)
+ ## Example
+        prop <- 1/4
+ # (6) Selection ratio (sr) = (# of selected applicants)/(total # of applicants)
+ ## Example
+        sr <- 0.10
+ # (7) Spac = number of Pareto points
+ ## Example
+        Spac <- 21
+
+2. Paste and run the following command in R console or RStudio: 
+ # Fit Regularized Pareto-optimal model with parameter selectoin via cross-validation
+        cv.out = cv.ParetoElnet(data_cal = data_cal, n_val = 10000, 
+                        	            lambda.grid = lambda.grid, alpha.grid = alpha.grid,
+                                		prop = prop, sr = sr, Spac = Spac)
+
+Example 2: Statistics of calibration sample data as input (i.e., calibration sample size, standardized subgroup mean difference, predictor and criterion correlation matrix). Input do not include calibration sample raw data set.
+
+1. Specify inputs (example from De Corte, Lievens & Sackett (2007) is given below): 
+ # (1) Calibration sample size
+ ## Example
+        n_cal = 100
+ # (2) Subgroup differences (d): standardized mean differences between minority and majority subgroups (i.e., majority - minority), on each predictor and criterion (in applicant pool)
+ ## Example
+        d <- c(1.00, 0.23, 0.09, 0.33, .30)
+ # (3) Correlation matrix (R) = Criterion predictor inter-correlation matrix 
+ # Format: Predictor_1, ..., Predictor_n, Criterion
+ ## Example
+        R <- matrix(c(1, .24, .00, .19, .30,
+        		      .24, 1, .12, .16, .30,
+             	      .00, .12, 1, .51, .18,
+              	      .19, .16, .51, 1, .28,
+                      	      .30, .30, .18, .28, 1),
+           		   (length(d)+1),(length(d)+1))
+ # (4) Validation sample size
+ ## Example
+        n_val = 10000
+ # (5) Grid of alpha values to try
+ ## Example
+        alpha.grid <- seq(0,1,length=3)
+ # (6) Grid of lambda values to try
+ ## Example
+        lambda.grid <- 10^seq(1,-2,length=11)
+ # (7) Proportion of minority applicants (prop) = (# of minority applicants)/(total # of applicants)
+ ## Example 
+       prop <- 1/4
+ # (8) Selection ratio (sr) = (# of selected applicants)/(total # of applicants)
+ ## Example 
+       sr <- 0.10
+ # (9) Spac = number of Pareto points
+ ## Example
+        Spac <- 21
+
+2. Paste and run the following command in R console or RStudio:
+ # Fit Regularized Pareto-optimal model with parameter selection via cross-validation
+        cv.out = cv.ParetoElnet(n_cal = n_cal, D = D, R = R,  
+                        		n_val = n_val, 
+                        		lambda.grid = lambda.grid, alpha.grid = alpha.grid,
+                        		prop = prop, sr = sr, Spac = Spac)
 
 #### Output Description ####
 
-
+1. Regularized Paret-optimal solutions (i.e., 21 equally-spaced solutions that characterize the Criterion validity – AI ratio trade-off curve, and Predictor Weights at each point along trade-off curve) with the model using best parameters selected using cross-validation.
+2. Selected model parameters (i.e., alpha parameter and lambda parameter)
+3. Plots (i.e., Criterion validity – AI ratio trade-off curve, and Predictor weights across trade-off points).
 
 #### Note ####
 
-The program is modeled after DeCorte's (2006) TROFSS Fortran program and Zhou's (2006) NBI Matlab program (version 0.1.3).
-The current version only supports scenarios where AI ratio and one other criterion are being optimized.
+The program is updated based on the ParetoR package that was introduced in Song et al. (2017). It is partially modeled after De Corte's (2006) TROFSS Fortran program and Zhou's (2006) NBI Matlab program (version 0.1.3). The current version only supports scenarios where AI ratio and one other criterion are being optimized.
 
 #### References ####
 
@@ -159,7 +235,7 @@ Wee, S., Newman, D. A., & Joseph, D. L. (2014). More than g: Selection quality a
 
 #### Acknowledgements ####
 
-Great appreciation to Dr. Serena Wee, Dr. Dan Newman and Dr. Wilfried De Corte for guidance and feedback on development of the program.
+Great appreciation to Dr. Serena Wee, Dr. Dan Newman, Dr. Wilfred De Corte, and Dr. Victoria Stodden for guidance and feedback on development of the program.
 
 #### Web Application ####
 
