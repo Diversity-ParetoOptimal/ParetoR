@@ -3,7 +3,7 @@
 Pareto-Optimization via Normal Boundary Intersection Method in Diversity Hiring <br />
 Developer: Q. Chelsea Song <br />
 Contact: qianqisong@gmail.com <br />
-Last Update: 04/22/2017 
+Last Update: 03/23/2018 
 
 ## Objective ##
 
@@ -37,7 +37,7 @@ The current R package provides a set of Pareto-optimal solutions that simultaneo
    &nbsp; # (3) Subgroup differences (**d**): standardized mean differences between minority and majority subgroups, on each predictor (in applicant pool) <br />
       &nbsp; ## *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp;  d <- c(1.00, 0.23, 0.09, 0.33) <br />
-   &nbsp; # (4) Correlation matrix (**R**) = criterion & predictor inter-correlation matrix (in applicant pool) <br \>
+   &nbsp; # (4) Correlation matrix (**R**) = criterion & predictor inter-correlation matrix (in applicant pool) <br />
       &nbsp; ## *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp; # Format: Predictor_1, ..., Predictor_n, Criterion <br />
 &nbsp; &nbsp; &nbsp; &nbsp; R <- matrix(c(1, .24, .00, .19, .30, <br /> 
@@ -46,7 +46,7 @@ The current R package provides a set of Pareto-optimal solutions that simultaneo
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .19, .16, .51, 1, .28, <br /> 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .30, .30, .18, .28, 1), <br /> 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (length(d)+1),(length(d)+1)) <br /><br />
-2. Paste and run the following command in R console or RStudio: <br \>
+2. Paste and run the following command in R console or RStudio: <br />
 &nbsp; &nbsp; &nbsp; &nbsp; out = ParetoR(prop, sr, d, R)
 
 #### Output Description ####
@@ -54,24 +54,24 @@ The current R package provides a set of Pareto-optimal solutions that simultaneo
 1. Pareto Optimal solutions (i.e., 21 equally-spaced solutions that characterize the Criterion validity – AI ratio tradeoff curve, and Predictor Weights at each point along tradeoff curve).
 2. Plots (i.e., Criterion validity – AI ratio tradeoff curve, Predictor weights across trade-off points).
 
-**ParetoShrinkage** function <br \>
-*Estimate shrunken Pareto-optimal solution based on Pareto-optimal shrinkage formulae introduced in Study 2 of Song (2018; dissertation)* <br \>
+**ParetoShrinkage** function <br />
+*Estimate shrunken Pareto-optimal solution based on Pareto-optimal shrinkage formulae introduced in Study 2 of Song (2018; dissertation)* <br />
 
 #### Example Implementation ####
 
-1. Specify inputs <br \>
- &nbsp; # (1) Calibration sample size  <br \>
+1. Specify inputs <br />
+ &nbsp; # (1) Calibration sample size  <br />
  &nbsp; &nbsp; &nbsp; &nbsp; Ncal <- 100
- &nbsp; # (2) Number of predictors  <br \>
+ &nbsp; # (2) Number of predictors  <br />
  &nbsp; &nbsp; &nbsp; &nbsp; numpred <- 4
- &nbsp; # (3) Number of Pareto-optimal points (i.e., number of sets of predictor weights)  <br \>
+ &nbsp; # (3) Number of Pareto-optimal points (i.e., number of sets of predictor weights)  <br />
  &nbsp; &nbsp; &nbsp; &nbsp; p_pareto <- 21
- &nbsp; # (4) Vector of calibration sample job performance validity  <br \>
+ &nbsp; # (4) Vector of calibration sample job performance validity  <br />
  &nbsp; &nbsp; &nbsp; &nbsp; load(R_perf_cal)
- &nbsp; # (5) Vector of calibration sample race bivariate correlation [i.e., correlation between race dummy variable (0-minority, 1-majority) and predictor composite score]  <br \>
+ &nbsp; # (5) Vector of calibration sample race bivariate correlation [i.e., correlation between race dummy variable (0-minority, 1-majority) and predictor composite score]  <br />
  &nbsp; &nbsp; &nbsp; &nbsp; load(R_race_cal)
 
-2. Paste and run the following command in R console or RStudio: <br \>
+2. Paste and run the following command in R console or RStudio: <br />
  &nbsp; # Estimate shrunken Pareto-optimal solution
  &nbsp; &nbsp; &nbsp; &nbsp; ParetoShrinkage(Ncal = Ncal, numpred = numpred, p_pareto = p_pareto, 
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; R_perf_cal = R_perf_cal, R_race_cal = R_race_cal, 
