@@ -1,7 +1,7 @@
 # Command Function (ParetoR) - Pareto-Optimization via Normal Boundary Intersection
 # Developer: Temporarily removed for blind review
 # Contact: Temporarily removed for blind review
-# Last Update: 03/09/2017
+# Last Update: 02/12/2018
 
 ###### Instruction ######
 
@@ -84,15 +84,12 @@
 #' out = ParetoR(prop, sr, d, R)
 #'
 #' @export
-ParetoR = function(prop, sr, d, R, graph = TRUE, display_solution = TRUE){
+ParetoR = function(prop, sr, d, R, Spac = 20, graph = TRUE, display_solution = TRUE){
 
   prop_ParetoR <<- prop
   sr_ParetoR <<- sr
   d_ParetoR <<- d
   R_ParetoR <<- R
-
-  # Number of Pareto-Points
-  Spac 	= 20
 
   # Tolerance Level for Algorithm
   TolCon 	= 1.0000e-6 # tolerance of constraint
