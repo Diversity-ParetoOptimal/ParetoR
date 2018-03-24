@@ -61,21 +61,21 @@ The current R package provides a set of Pareto-optimal solutions that simultaneo
 
 1. Specify inputs <br />
  &nbsp; # (1) Calibration sample size  <br />
- &nbsp; &nbsp; &nbsp; &nbsp; Ncal <- 100
+ &nbsp; &nbsp; &nbsp; &nbsp; Ncal <- 100 <br />
  &nbsp; # (2) Number of predictors  <br />
- &nbsp; &nbsp; &nbsp; &nbsp; numpred <- 4
+ &nbsp; &nbsp; &nbsp; &nbsp; numpred <- 4 <br />
  &nbsp; # (3) Number of Pareto-optimal points (i.e., number of sets of predictor weights)  <br />
- &nbsp; &nbsp; &nbsp; &nbsp; p_pareto <- 21
+ &nbsp; &nbsp; &nbsp; &nbsp; p_pareto <- 21 <br />
  &nbsp; # (4) Vector of calibration sample job performance validity  <br />
- &nbsp; &nbsp; &nbsp; &nbsp; load(R_perf_cal)
+ &nbsp; &nbsp; &nbsp; &nbsp; load(R_perf_cal) <br />
  &nbsp; # (5) Vector of calibration sample race bivariate correlation [i.e., correlation between race dummy variable (0-minority, 1-majority) and predictor composite score]  <br />
- &nbsp; &nbsp; &nbsp; &nbsp; load(R_race_cal)
+ &nbsp; &nbsp; &nbsp; &nbsp; load(R_race_cal) <br />
 
 2. Paste and run the following command in R console or RStudio: <br />
- &nbsp; # Estimate shrunken Pareto-optimal solution
- &nbsp; &nbsp; &nbsp; &nbsp; ParetoShrinkage(Ncal = Ncal, numpred = numpred, p_pareto = p_pareto, 
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; R_perf_cal = R_perf_cal, R_race_cal = R_race_cal, 
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; use = "Wherry)
+ &nbsp; # Estimate shrunken Pareto-optimal solution <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; ParetoShrinkage(Ncal = Ncal, numpred = numpred, p_pareto = p_pareto,  <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; R_perf_cal = R_perf_cal, R_race_cal = R_race_cal,  <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; use = "Wherry) <br />
 
 #### Output Description ####
 
