@@ -171,7 +171,7 @@ Example 1: Calibration raw data as input
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     lambda.grid = lambda.grid, alpha.grid = alpha.grid, <br />
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 	 prop = prop, sr = sr, Spac = Spac) <br />
 
-&nbsp; Example 2: Statistics of calibration sample data as input (i.e., calibration sample size, standardized subgroup mean difference, predictor and criterion correlation matrix). Input do not include calibration sample raw data set. <br /> <br />
+&nbsp; Example 2: Statistics of calibration sample data as input (i.e., calibration sample size, standardized subgroup mean difference, predictor and criterion correlation matrix). Input do not include calibration sample raw data set. <br /> 
 
 1. Specify inputs (example from De Corte, Lievens & Sackett (2007) is given below): <br />
  &nbsp; # (1) Calibration sample size <br />
