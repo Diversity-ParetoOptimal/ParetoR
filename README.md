@@ -111,8 +111,7 @@ The current R package provides a set of Pareto-optimal solutions that simultaneo
 
 2. Paste and run the following command in R console or RStudio:  <br />
  &nbsp; # Fit Regularized Pareto-optimal model with parameter selection via cross-validation <br />
- &nbsp; &nbsp; &nbsp; &nbsp; out = ParetoElnet(d = d, R = R,  <br />
- &nbsp; &nbsp; &nbsp; &nbsp;                   prop = prop, sr = sr, Spac = Spac) <br />
+ &nbsp; &nbsp; &nbsp; &nbsp; out = ParetoElnet(d = d, R = R, prop = prop, sr = sr, Spac = Spac) <br />
 
 #### Output Description ####
 
@@ -125,39 +124,7 @@ The current R package provides a set of Pareto-optimal solutions that simultaneo
 
 #### Example Implementation ####
 
-Example 1: Calibration raw data as input
-
-1. Specify inputs (example from De Corte, Lievens & Sackett (2007) is given below): <br />
- &nbsp; # (1) Calibration data <br />
- &nbsp; # Format: Predictor_1, ..., Predictor_n, Job Performance Validity, Race dummy variable (e.g., 0-minority; 1-majority) <br />
- &nbsp; ## Example <br />
- &nbsp; &nbsp; &nbsp; &nbsp; load(data_cal) <br />
- &nbsp; # (2) Validation sample size <br />
- &nbsp; ## Example <br />
- &nbsp; &nbsp; &nbsp; &nbsp; n_val = 10000 <br />
- &nbsp; # (3) Grid of alpha values to try <br />
- &nbsp; ## Example <br />
- &nbsp; &nbsp; &nbsp; &nbsp; alpha.grid <- seq(0,1,length=3) <br />
- &nbsp; # (4) Grid of lambda values to try <br />
- &nbsp; ## Example <br />
- &nbsp; &nbsp; &nbsp; &nbsp; lambda.grid <- 10^seq(1,-2,length=11) <br />
- &nbsp; # (5) Proportion of minority applicants (prop) = (# of minority applicants)/(total # of applicants) <br />
- &nbsp; ## Example <br />
- &nbsp; &nbsp; &nbsp; &nbsp; prop <- 1/4 <br />
- &nbsp; # (6) Selection ratio (sr) = (# of selected applicants)/(total # of applicants) <br />
- &nbsp; ## Example <br />
- &nbsp; &nbsp; &nbsp; &nbsp; sr <- 0.10 <br />
- &nbsp; # (7) Spac = number of Pareto points <br />
- &nbsp; ## Example <br />
- &nbsp; &nbsp; &nbsp; &nbsp; Spac <- 21 <br />
-
-2. Paste and run the following command in R console or RStudio:  <br />
- &nbsp; # Fit Regularized Pareto-optimal model with parameter selectoin via cross-validation <br />
- &nbsp; &nbsp; &nbsp; &nbsp; cv.out = cv.ParetoElnet(data_cal = data_cal, n_val = 10000,  <br />
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     lambda.grid = lambda.grid, alpha.grid = alpha.grid, <br />
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 	 prop = prop, sr = sr, Spac = Spac) <br />
-
-&nbsp; Example 2: Statistics of calibration sample data as input (i.e., calibration sample size, standardized subgroup mean difference, predictor and criterion correlation matrix). Input do not include calibration sample raw data set. <br /> 
+Example: Statistics of calibration sample data as input (i.e., calibration sample size, standardized subgroup mean difference, predictor and criterion correlation matrix). Input do not include calibration sample raw data set. <br /> 
 
 1. Specify inputs (example from De Corte, Lievens & Sackett (2007) is given below): <br />
  &nbsp; # (1) Calibration sample size <br />
