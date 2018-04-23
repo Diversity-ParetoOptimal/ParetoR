@@ -662,3 +662,44 @@ plotPareto = function(Pareto_Fmat, Pareto_Xmat){
          col=rainbow(ncol(X)))
 
 }
+
+###### calculate_perf_AI() ######
+
+#' calculate_perf_AI
+#'
+#' Function for calculating job performance criterion validity and adverse impact ratio (AI ratio) using predictor weights
+#' @param data input data (matrix), which consists of predictor scores, performance score (column label: "Perf") and race dummy variable (column label: "Race_dummy")
+#' @param weight predictor weights
+#' @param prop proportion of minority applicants = (number of minority applicants)/(number of all applicants)
+#' @param sr selection ratio = (number of hires) / (number of applicants)
+#' @return Perf job performance criterion validity (i.e., correlation between job performance score and predictor weighted composite score)
+#' @return AI adverse impact ratio
+calculate_perf_AI <- function(data, weight, prop, sr){
+  
+  ##give space for Y_hat (n_val*(numpoints+1) matrix of weighted composites)
+  Y_hat <- matrix(0, nrow(data_val), dim(weight)[1])
+  ##give space for ryi vector
+  Perf_val <- c(rep(0,dim(weight)[1]))
+  ##give space for rrace vector
+  rrace_val <- c(rep(0,dim(weight)[1]))
+  
+  for (i in 1:dim(weight)[1]){
+    #get weight vector
+    weight_vector <- weight[i, (1:dim(weight)[2])] 
+    
+    #get ryyhat vector
+    ##get Y vector
+    Y_vector <- data_val[,"Perf"]
+    race_vector <- data_val[,"Race_dummy"]
+    ##get Y_hat[,i} (weighted composite)
+    X_matrix <- data_val[,1:dim(weight)[2]]
+    Y_hat[,i] <- t(t(as.matrix(weight_vector))%*%t(as.matrix(X_matrix)))
+    ##get ryyhat vector
+    Perf_val[i] <- cor(Y_vector,Y_hat[,i])
+    rrace_val[i] <- cor(race_vector,Y_hat[,i])
+  }
+  
+  AI_val = r2AIratio(rrace_val, prop, sr)
+  
+  return(out = list(Perf = Perf_val, AI = AI_val))
+}
