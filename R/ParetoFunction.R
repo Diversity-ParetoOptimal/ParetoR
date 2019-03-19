@@ -45,11 +45,11 @@ cat('\n Estimating Pareto-Optimal Solution ... \n')
   # (for reference) MATLAB constraints:
   # options = optimoptions('fmincon','Algorithm','sqp','MaxIter',(nvars+1)*1000,'TolFun',TolF,'TolX',TolX,'TolCon',TolCon,'Display','off')
 
-  nloptr::nl.opts(optlist = list(
+  suppressMessages(nloptr::nl.opts(optlist = list(
              maxeval = (nvars+1)*1000
              ,xtol_rel = TolX
              ,ftol_rel = TolF
-             ))
+             )))
 
   #Initialize PHI
 
@@ -82,11 +82,11 @@ cat('\n Estimating Pareto-Optimal Solution ... \n')
 
       xstart = runif(length(X0))
 
-      out = nloptr::slsqp(x0 = X0, fn = myLinCom
+      out = suppressMessages(nloptr::slsqp(x0 = X0, fn = myLinCom
                  ,lower = VLB, upper = VUB
                  ,hin = myCon_ineq
                  ,heq = myCon_eq
-                  )
+                  ))
       x = out$par
       f = out$value
       rm(out)
@@ -208,11 +208,11 @@ cat('\n Estimating Pareto-Optimal Solution ... \n')
 
       # SOLVE NBI SUBPROBLEM
 
-      out = nloptr::slsqp(x0 = xstart, fn = myT
+      out = suppressMessages(nloptr::slsqp(x0 = xstart, fn = myT
                   ,lower = c(VLB,-Inf)
                   ,upper = c(VUB,Inf)
                   ,hin = myCon_ineq
-                  ,heq = myTCon_eq)
+                  ,heq = myTCon_eq))
 
       x_trial = out$par
       f = out$value
