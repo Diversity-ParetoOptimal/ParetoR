@@ -3,7 +3,6 @@
 Pareto-Optimization via Normal Boundary Intersection Method in Diversity Hiring <br />
 Developer: Q. Chelsea Song <br />
 Contact: qianqisong@gmail.com <br />
-Last Update: 03/23/2018 
 
 ## Objective ##
 
