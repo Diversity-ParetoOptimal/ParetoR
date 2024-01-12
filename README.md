@@ -14,7 +14,7 @@ The current R package provides a set of Pareto-optimal solutions that simultaneo
 ### Install and Load Package ###
 
 1. Open an R console or RStudio window. (R can be downloaded for free from https://cran.r-project.org; RStudio can be downloaded for free from https://www.rstudio.com/)
-2. Install R package "ParetoR" through Github by pasting and running the following commands in R console or RStudio:
+2. Install R package "ParetoR" through Github by pasting and running the following commands in R console or RStudio: <br />
    install.packages("devtools") <br />
    library("devtools") <br />
    install_github("Diversity-ParetoOptimal/ParetoR") <br />
