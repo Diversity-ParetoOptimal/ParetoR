@@ -51,75 +51,39 @@ The current R package provides a set of Pareto-optimal solutions that simultaneo
 
 #### Output Description ####
 
-1. Pareto Optimal solutions (i.e., 21 equally-spaced solutions that characterize the Criterion validity – AI ratio tradeoff curve, and Predictor Weights at each point along tradeoff curve).
-2. Plots (i.e., Criterion validity – AI ratio tradeoff curve, Predictor weights across trade-off points).
+1. Pareto Optimal solutions (i.e., 21 equally-spaced solutions that characterize the Criterion validity – AI ratio tradeoff curve, and Predictor Weights at each point along tradeoff curve)
+2. Plots (i.e., Criterion validity – AI ratio tradeoff curve, Predictor weights across trade-off points)
 
 **ParetoAdj function**  <br />
 *Adjusts Pareto-optimal solutions using the shrinkage formula introduced by Song, Tang, Newman, & Wee (2023)*  <br /> 
-
-#### Example Implementation
-
-1.  Specify six inputs (example from Song, Tang, Newman, & Wee (2023) is given below): <br />
-   &nbsp; # (1)  Calibration sample size (**Ncal**) <br />
-      &nbsp; ## *Example*: <br />
-      &nbsp; &nbsp; &nbsp; &nbsp; Ncal <- 40 <br />
-   &nbsp; # (2) Predictor weights for each Pareto solution <br />
-      &nbsp; ## *Example*: <br />
-      &nbsp; &nbsp; &nbsp; &nbsp; # Rows: Pareto solutions; Columns: Predictors <br />
-&nbsp; &nbsp; &nbsp; &nbsp; wpred <- matrix(c(0,    0,    0,    0,    1, <br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,    0,    0, 0.07, 0.93, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,    0,    0, 0.13, 0.87, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,    0,    0, 0.18, 0.82, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,    0,    0, 0.23, 0.77, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,    0,    0, 0.28, 0.72, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,    0,    0, 0.32, 0.68, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,    0,    0, 0.37, 0.63, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,    0,    0, 0.41, 0.59, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0, 0.01,    0, 0.45, 0.55, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0, 0.04,    0, 0.44, 0.52, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0, 0.07,    0, 0.43,  0.5, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,  0.1,    0, 0.42, 0.48, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0, 0.14,    0, 0.41, 0.46, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0, 0.17,    0,  0.4, 0.43, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0, 0.21,    0, 0.38, 0.41, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0, 0.25,    0, 0.37, 0.38, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,  0.3,    0, 0.35, 0.35, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0, 0.33, 0.03, 0.34,  0.3, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0, 0.37, 0.08, 0.31, 0.25, <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0, 0.42, 0.15, 0.27, 0.15), ncol = 5, nrow = 21) <br /> 
-   &nbsp; # (3) Vector of calibration sample job performance validity <br />
-      &nbsp; ## *Example*: <br />
-&nbsp; &nbsp; &nbsp; &nbsp; Rperf_cal = c(.20, .24, .27, .30, .33, .36, .39, .42, .45, .48, .51, .54,
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .57, .60, .63, .66, .69, .72, .74, .76, .78)
-   &nbsp; # (4) Vector of calibration sample race bivariate correlation <br />
-      &nbsp; &nbsp; &nbsp; &nbsp; # (i.e., correlation between race dummy variable (0-minority, 1-majority) <br />
-      &nbsp; &nbsp; &nbsp; &nbsp; # and predictor composite score)
-      &nbsp; ## *Example*: <br />
-&nbsp; &nbsp; &nbsp; &nbsp; Rrace_cal = c(-.12, -.11, -.10, -.10, -.09, -.08, -.07, -.06, -.05, -.03,
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -.02, .00, .01, .03, .05, .07, .09, .12, .15, .19, .24)
-   &nbsp; # (5) proportion of minority
-      &nbsp; ## *Example*: <br />
-      &nbsp; &nbsp; &nbsp; &nbsp; prop <- 1/6
-   &nbsp; # (6) selection ratio
-      &nbsp; ## *Example*: <br />
-      &nbsp; &nbsp; &nbsp; &nbsp; sr <- .15
-
-2. Paste and run the following command in R console or RStudio: <br />
-   &nbsp; # Estimate shrunken Pareto-optimal solution
-&nbsp; &nbsp; &nbsp; &nbsp; out <- ParetoAdj(Ncal = Ncal, wpred = wpred, Rperf_cal = Rperf_cal, Rrace_cal = Rrace_cal, prop = prop, sr = sr)
 
 #### Output Description
 
 1. The criterion validity and AI ratio results of the Pareto-optimal trade-off curve that is adjusted using the shrinkage formula
 
+**ParetoElnet function**  <br />
+*Estimates Pareto-optimal solutions using the regularized tradeoff curve algorithm introduced by Song, Tang, Newman, & Wee (2023)*  <br /> 
+
+#### Output Description
+
+1. Predictor weights at each point along the tradeoff curve
+
+**cvParetoElnet function**  <br />
+*Estimates Pareto-optimal solutions using the regularized tradeoff curve algorithm introduced by Song, Tang, Newman, & Wee (2023); implements hyperparameter tuning*  <br /> 
+
+#### Output Description
+
+1. Predictor weights at each point along the tradeoff curve
+2. lambda and alpha parameter values chosen through hyperparameter tuning
 
 #### Note ####
 
-The program is updated based on the ParetoR package that was introduced in Song et al. (2017). It is partially modeled after De Corte's (2006) TROFSS Fortran program and Zhou's (2006) NBI Matlab program (version 0.1.3). The current version only supports scenarios where AI ratio and one other criterion are being optimized.
+The program is updated based on the ParetoR package that was introduced by Song et al. (2017). It is partially modeled after De Corte's (2006) TROFSS Fortran program and Zhou's (2006) NBI Matlab program (version 0.1.3). The current version only supports scenarios where AI ratio and one other criterion are being optimized.
 
 #### References ####
 
-Song, Q. C., Wee, S., & Newman, D. (provisionally accepted). Diversity Shrinkage: Cross-Validating Pareto-Optimal Weights to  Enhance Diversity via Hiring Practices. *Journal of Applied Psychology*. <br />
+Song, Q. C., Wee, S., & Newman, D. (2017). Diversity shrinkage: Cross-validating Pareto-optimal weights to enhance diversity via hiring practices. *Journal of Applied Psychology*. <br />
+Song, Q. C., Tang, C., Newman, D. A., & Wee, S. (2023). Adverse impact reduction and job performance optimization via Pareto-optimal weighting: A shrinkage formula and regularization technique using machine learning. *Journal of Applied Psychology*, 108(9), 1461–1485.  <br />
 Das, I., & Dennis, J. E. (1998). Normal-boundary intersection: A new method for generating the Pareto surface in nonlinear multicriteria optimization problems. *SIAM Journal on Optimization*, 8, 631-657. <br />
 De Corte, W. (2006). *TROFSS User's Guide*. <br />
 De Corte, W., Lievens, F., & Sackett, P. (2007). Combining predictors to achieve optimal trade-offs between selection quality and adverse impact. *Journal of Applied Psychology*, 92, 1380-1393. <br />
@@ -127,7 +91,7 @@ Wee, S., Newman, D. A., & Joseph, D. L. (2014). More than g: Selection quality a
 
 #### Acknowledgements ####
 
-Great appreciation to Dr. Serena Wee, Dr. Dan Newman, Dr. Wilfred De Corte, and Dr. Victoria Stodden for guidance and feedback on development of the program.
+Great appreciation to Dr. Serena Wee, Dr. Dan Newman, Dr. Chen Tang, Dr. Wilfred De Corte, and Dr. Victoria Stodden for guidance and feedback on the development of the program.
 
 #### Web Application ####
 
