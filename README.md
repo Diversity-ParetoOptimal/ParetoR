@@ -66,7 +66,7 @@ The current R package provides a set of Pareto-optimal solutions that simultaneo
    &nbsp; # (2) Predictor weights for each Pareto solution <br />
       &nbsp; ## *Example*: <br />
       &nbsp; &nbsp; &nbsp; &nbsp; # Rows: Pareto solutions; Columns: Predictors <br />
-&nbsp; &nbsp; &nbsp; &nbsp; wpred <- matrix(c(0,    0,    0,    0,    1,
+&nbsp; &nbsp; &nbsp; &nbsp; wpred <- matrix(c(0,    0,    0,    0,    1, <br />
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,    0,    0, 0.07, 0.93,
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,    0,    0, 0.13, 0.87,
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,    0,    0, 0.18, 0.82,
