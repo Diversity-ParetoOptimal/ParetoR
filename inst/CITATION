@@ -1,0 +1,33 @@
+citHeader("To cite ParetoR in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "Adverse Impact Reduction and Job Performance Optimization via Pareto-Optimal Weighting: A Shrinkage Formula and Regularization Technique using Machine Learning",
+  author   = "Song, Q. C., Tang, C., Newman, D., Wee, S.",
+  journal  = "Journal of Applied Psychology",
+  year     = 2023,
+  url      = "https://doi.org/10.1037/apl0001085",
+  textVersion = paste(
+
+  "Song, Q. C., Tang, C., Newman, D., Wee, S. (2023). Adverse Impact Reduction and Job Performance Optimization via Pareto-Optimal Weighting: A Shrinkage Formula and Regularization Technique using Machine Learning. Journal of Applied Psychology."
+
+  )
+)
+
+citEntry(
+  entry    = "Article",
+  title    = "Diversity Shrinkage: Cross-Validating Pareto-Optimal Weights to Enhance Diversity via Hiring Practices",
+  author   = "Song, Q. C., Wee, S., Newman, D.",
+  journal  = "Journal of Applied Psychology",
+  year     = 2017,
+  volume   = 102,
+  number   = 12,
+  pages    = "1636–1657",
+  url      = "https://doi.org/10.1037/apl0000240",
+  textVersion = paste(
+
+  "Song, Q. C., Wee, S., & Newman, D. A. (2017). Diversity shrinkage: Cross-validating pareto-optimal weights to enhance diversity via hiring practices. Journal of Applied Psychology, 102(12), 1636–1657. https://doi.org/10.1037/apl0000240"
+
+  )
+)
+
