@@ -37,6 +37,7 @@
 #' @param sr Selection ratio
 #' @param d Subgroup difference
 #' @param R Correlation matrix
+#' @Spac Number of evenly-spaced solutions to obtain minus 1
 #' @non_negative_weights If TRUE, predictor weights will constrained to be non-negative
 #' @param graph If TRUE, plots will be generated for Pareto-optimal curve and predictor weights
 #' @return out Pareto-Optimal solution with criterion values (Criterion) and predictor weights (ParetoWeights)
