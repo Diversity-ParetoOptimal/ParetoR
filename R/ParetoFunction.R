@@ -110,7 +110,7 @@ cat('\n Estimating Pareto-Optimal Solution ... \n')
     }
 
     for(k in 2:nvars){
-      x[k] = x[k]/som
+      x[k] = x[k]/abs(som)
     }
     # to make sum of x = 1
 
@@ -198,7 +198,7 @@ cat('\n Estimating Pareto-Optimal Solution ... \n')
       if(Near[k] > 0){
 
         xstart = X_Near[,Near[k]]
-        #start X is the previous weight-order's X
+        # start X is the previous weight-order's X
 
       }
 
@@ -225,7 +225,7 @@ cat('\n Estimating Pareto-Optimal Solution ... \n')
 
         for(k in 2:nvars){som = som + x_trial[k]}
 
-        for(k in 2:nvars){x_trial[k] = x_trial[k]/som}
+        for(k in 2:nvars){x_trial[k] = x_trial[k]/abs(som)}
 
         Pareto_Xmat = cbind(Pareto_Xmat, x_trial[1:nvars])        # Pareto optima in X-space
         X_Near = cbind(X_Near,x_trial)
